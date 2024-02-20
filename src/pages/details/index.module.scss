@@ -1,4 +1,4 @@
-.details{
+.details {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -6,40 +6,47 @@
   align-items: center;
   flex-direction: column;
   font-family: "Ubuntu", sans-serif;
-  
-
 }
-.imageConatiner  {
+
+.imageContainer {
   width: 80%;
-  
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;  
-  
+  align-items: center;
   border-radius: 50px;
   overflow: hidden;
   max-width: 500px;
-  
-  
 }
-.imageConatiner img {
-  
+
+.imageContainer img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   max-width: 500px;
-
-
+  opacity: 1; /* Garante que a imagem seja visível */
+  transition: opacity 0.5s ease; /* Transição de opacidade suave */
 }
 
-.detailsText{
+.detailsText {
   width: 80%;
   height: 100px;
   text-align: center;
-  
 }
-.details h2{
-  margin: 0;
-  padding: 0;
-  
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+}
+
+.imagem {
+  opacity: 0; /* Configura a opacidade inicial para 0 */
+}
+
+.transicao {
+  opacity: 1; /* Configura a opacidade para 1 quando a classe 'transicao' é aplicada */
 }
