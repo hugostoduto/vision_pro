@@ -24,8 +24,8 @@
   height: 100%;
   object-fit: cover;
   max-width: 500px;
-  opacity: 1; /* Garante que a imagem seja visível */
-  transition: opacity 0.5s ease; /* Transição de opacidade suave */
+  opacity: 1;
+  transition: opacity 0.5s ease; 
 }
 
 .detailsText {
@@ -44,9 +44,9 @@
 }
 
 .imagem {
-  opacity: 0; /* Configura a opacidade inicial para 0 */
+  opacity: 0; 
 }
 
 .transicao {
-  opacity: 1; /* Configura a opacidade para 1 quando a classe 'transicao' é aplicada */
+  opacity: 1; 
 }

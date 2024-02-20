@@ -39,7 +39,7 @@ const Details = () => {
           <PlusButton onClick={trocarProdutos} />
         </div>
         
-        {/* Aplicação da classe 'imagem' diretamente à imagem */}
+        
         <img className={classes.imagem} alt={prod.position} src={prod.image} />
       </div>
       <h1 className='font-bold text-xl mb-10'>{prod.position}</h1>
