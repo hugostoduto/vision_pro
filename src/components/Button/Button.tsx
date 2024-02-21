@@ -10,7 +10,7 @@ const Button = ({title, href, variant = 'primary'}:{title:string,href:string,var
    
   const styleBtn = variant === 'primary' ? classes.primary : classes.secondary;
   return (
-    <Link href={href} className={styleBtn} >{title}</Link>
+    <Link href={href} className={`${classes.button} ${styleBtn}`} >{title}</Link>
   )
 }
 
