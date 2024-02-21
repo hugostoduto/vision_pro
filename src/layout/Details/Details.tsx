@@ -61,7 +61,7 @@ const Details = () => {
       </div>
       <h1 className='font-bold text-xl m-10'>{prod.position}</h1>
       <p className={classes.detailsText}>{prod.description}</p>
-      <div className={classes.button}><Button variant='secondary' href='/' title='Learn more about design' /></div>
+      <div className={classes.button}><Button variant='secondary' href='/design' title='Learn more about design' /></div>
     </div>
     
   )

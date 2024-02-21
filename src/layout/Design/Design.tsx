@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
-import Button from '@/components/Button/Button';
 import PlusButton from '@/components/PlusButton/PlusButton';
 import classes from './index.module.scss';
 import '../../app/globals.css';
