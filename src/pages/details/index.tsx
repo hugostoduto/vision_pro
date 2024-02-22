@@ -22,7 +22,7 @@ export default function DetailsPage() {
       <Details onClick={toggleHidden}/>
       
       <div ref={designRef} className={isHidden ? styles.hidden : styles.visible}>
-        <Design />
+        <Design closeTab={toggleHidden} />
       </div>
     </Suspense>
   );

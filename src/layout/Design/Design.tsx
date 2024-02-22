@@ -4,7 +4,7 @@ import PlusButton from '@/components/PlusButton/PlusButton';
 import classes from './index.module.scss';
 import '../../app/globals.css';
 
-const Design = () => {
+const Design = ({closeTab}:{closeTab: ()=> void}) => {
   const products = [
     {
       position: 'Front',
@@ -48,6 +48,9 @@ const Design = () => {
   return (
     <div className={classes.details}>
           
+          <div className={classes.closeBtn}>
+            <PlusButton onClick={closeTab} />
+          </div>
       <div className={classes.imageContainer}>
         <img className={classes.imagem} alt={currentProduct.position} src={currentProduct.image} />
       </div>
@@ -55,7 +58,7 @@ const Design = () => {
           <PlusButton onClick={prevProduct} />
           <PlusButton onClick={nextProduct} />
         </div>
-      <h1 className='font-bold text-xl m-10'>{currentProduct.position}</h1>
+     
       <p className={classes.detailsText}>{currentProduct.description}</p>
       
     </div>
