@@ -1,5 +1,5 @@
 'use client'
-import Loading from '@/components/loading';
+import Loading from '@/components/Loader';
 import Details from '@/layout/Details/Details';
 import React, { Suspense} from 'react'
 
