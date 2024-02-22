@@ -6,7 +6,7 @@ import React, {  useState } from 'react'
 import classes from './index.module.scss'
 import '../../app/globals.css'
 
-const Details = () => {
+const Details = ({onClick}:{onClick: ()=> void}) => {
   const prod1 = {
     position: 'Front',
     description: 'A singular piece of three-dimensionally formed laminated glass flows into an aluminum alloy frame that gently curves to wrap around your face.',
@@ -61,7 +61,8 @@ const Details = () => {
       </div>
       <h1 className='font-bold text-xl m-10'>{prod.position}</h1>
       <p className={classes.detailsText}>{prod.description}</p>
-      <div className={classes.button}><Button variant='secondary' href='/design' title='Learn more about design' /></div>
+      <div className={classes.button}>
+        <Button variant='secondary' onClick={onClick} title='Learn more about design' /></div>
     </div>
     
   )

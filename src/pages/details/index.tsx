@@ -19,8 +19,8 @@ export default function DetailsPage() {
 
   return (
     <Suspense fallback={<Loading />}>
-      <Details />
-      <button onClick={toggleHidden}>Click</button>
+      <Details onClick={toggleHidden}/>
+      
       <div ref={designRef} className={isHidden ? styles.hidden : styles.visible}>
         <Design />
       </div>
