@@ -1,7 +1,7 @@
 import Loading from '@/components/Loader';
 import HomePage from '@/layout/Home/HomePage';
 import { Suspense } from 'react';
-
+import "./globals.css";
 
 
 

@@ -47,6 +47,7 @@ const Design = () => {
 
   return (
     <div className={classes.details}>
+          
       <div className={classes.imageContainer}>
         <img className={classes.imagem} alt={currentProduct.position} src={currentProduct.image} />
       </div>

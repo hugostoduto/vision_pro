@@ -1,6 +1,7 @@
 import Button from '@/components/Button/Button';
 import Image from '../../../node_modules/next/image';
-import '../../app/'
+import "../../app/./globals.css";
+
 
 
 const HomePage = () =>{
