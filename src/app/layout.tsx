@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-/* import { Ubuntu } from 'next/font/google' */
+import { Ubuntu } from 'next/font/google'
 import "./globals.css";
 
-/* const ubuntu = Ubuntu({
+const ubuntu = Ubuntu({
   weight: ['400', '700'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
-}) */
+})
 
 export const metadata: Metadata = {
   title: "Apple Vision Pro",
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body  >{children}</body>
+      <body className={ubuntu.className} >{children}</body>
     </html>
   );
 }

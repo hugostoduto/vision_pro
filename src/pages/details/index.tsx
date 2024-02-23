@@ -1,6 +1,5 @@
 // DetailsPage.js
-
-import React, { Suspense, useState, useRef } from 'react';
+import React, { Suspense, useState } from 'react';
 import Loading from '@/components/Loader';
 import Design from '@/layout/Design/Design';
 import Details from '@/layout/Details/Details';
@@ -8,12 +7,13 @@ import styles from './index.module.scss';
 
 export default function DetailsPage() {
   const [isHidden, setIsHidden] = useState(true);
-  const designRef = useRef<HTMLDivElement>(null); // Definindo o tipo da referência
 
   const toggleHidden = () => {
     setIsHidden(!isHidden);
-    if (!isHidden && designRef.current) {
-      designRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (!isHidden) {
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Rolando para cima quando a div é fechada
+    } else {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); // Rolando para baixo quando a div é aberta
     }
   };
 
@@ -21,7 +21,7 @@ export default function DetailsPage() {
     <Suspense fallback={<Loading />}>
       <Details onClick={toggleHidden}/>
       
-      <div ref={designRef} className={isHidden ? styles.hidden : styles.visible}>
+      <div className={`${styles.designContainer} ${isHidden ? '' : styles.visible}`}>
         <Design closeTab={toggleHidden} />
       </div>
     </Suspense>

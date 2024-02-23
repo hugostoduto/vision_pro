@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import PlusButton from '@/components/PlusButton/PlusButton';
 import classes from './index.module.scss';
 import '../../app/globals.css';
+import RoundButton from '@/components/RoundButton/RoundButton';
+import { IoIosArrowBack, IoIosArrowForward, IoIosClose } from 'react-icons/io';
 
-const Design = ({closeTab}:{closeTab: ()=> void}) => {
+const Design = ({ closeTab }: { closeTab: () => void }) => {
   const products = [
     {
       position: 'Front',
@@ -47,20 +49,21 @@ const Design = ({closeTab}:{closeTab: ()=> void}) => {
 
   return (
     <div className={classes.details}>
-          
-          <div className={classes.closeBtn}>
-            <PlusButton onClick={closeTab} />
-          </div>
+
+      <div className={classes.closeBtn}>
+        <RoundButton icon={<IoIosClose size={30} color='#68686C' />} onClick={closeTab} />
+      </div>
       <div className={classes.imageContainer}>
         <img className={classes.imagem} alt={currentProduct.position} src={currentProduct.image} />
       </div>
-        <div className={classes.button}>
-          <PlusButton onClick={prevProduct} />
-          <PlusButton onClick={nextProduct} />
-        </div>
-     
+      <div className={classes.button}>
+        <RoundButton icon={<IoIosArrowBack size={23} color='#68686C' />} onClick={prevProduct} />
+        <RoundButton icon={<IoIosArrowForward size={23} color='#68686C' />} onClick={nextProduct} />
+
+      </div>
+
       <p className={classes.detailsText}>{currentProduct.description}</p>
-      
+
     </div>
   );
 };

@@ -1,15 +1,14 @@
-// styles/index.module.scss
-
+/* index.module.scss */
+.container{
+  height: fit-content;
+}
 .hidden {
-  display: none;
-  opacity: 0; // Opacidade 0 para esconder suavemente
-  transition: opacity 0.5s ease; // Transição de opacidade suave
+  display: none; /* Oculta a div */
+  height: 0%;
+  overflow: hidden;
 }
 
 .visible {
-  display: block;
-  opacity: 1; // Opacidade 1 para mostrar suavemente
-  transition: opacity 0.5s ease; // Transição de opacidade suave
+  display: block; /* Exibe a div */
+  height: 100%;
 }
-
-// Adicione outras classes aqui conforme necessário
