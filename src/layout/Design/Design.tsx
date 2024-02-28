@@ -1,69 +1,73 @@
-/* eslint-disable @next/next/no-img-element */
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PlusButton from '@/components/PlusButton/PlusButton';
 import classes from './index.module.scss';
-import '../../app/globals.css';
 import RoundButton from '@/components/RoundButton/RoundButton';
 import { IoIosArrowBack, IoIosArrowForward, IoIosClose } from 'react-icons/io';
+import DesignCard from '@/components/DesignCard/DesignCard';
+import Button from '@/components/Button/Button';
 
 const Design = ({ closeTab }: { closeTab: () => void }) => {
   const products = [
     {
       position: 'Front',
-      description: 'A singular piece of three-dimensionally formed laminated glass flows into an aluminum alloy frame that gently curves to wrap around your face.',
-      image: '/assets/images/Apple-Vision-Pro_01.jpg'
+      description: 'The Light Seal magnetically attaches to the aluminum alloy frame. It gently flexes to conform to individual face shapes.',
+      image: '/assets/images/small1.mp4'
     },
     {
       position: 'Cameras e Sensors',
-      description: 'An array of advanced cameras and sensors work together to let you see the world clearly, understand your environment, and detect hand input.',
-      image: '/assets/images/Apple-Vision-Pro_02.jpg'
+      description: 'The Solo Knit Band is 3D knitted, creating a unique rib structure that provides cushioning, breathability, and stretch.',
+      image: '/assets/images/small2.mp4'
     },
     {
       position: 'Audio Straps',
-      description: 'Speakers are positioned close to your ears, delivering rich Spatial Audio that seamlessly blends with real-world sounds. Two head bands are included. The Solo Knit Band provides cushioning, breathability, and stretch, and a Fit Dial lets you adjust Apple Vision Pro to your head. The Dual Loop Band features a pair of adjust',
-      image: '/assets/images/Apple-Vision-Pro_05.jpg'
+      description: 'ZEISS Optical Inserts can be customized with your vision prescription,2 magnetically attaching to the lenses for precise viewing and eye tracking.',
+      image: '/assets/images/small3.mp4'
     },
-    {
-      position: 'Head Bands',
-      description: 'Two head bands are included. The Solo Knit Band provides cushioning, breathability, and stretch, and a Fit Dial lets you adjust Apple Vision Pro to your head. The Dual Loop Band features a pair of adjustable upper and lower straps for a precise fit.',
-      image: '/assets/images/Apple-Vision-Pro_03.jpg'
-    },
-    {
-      position: 'Power',
-      description: 'The external battery supports up to 2 hours of general use and up to 2.5 hours of video playback.1',
-      image: '/assets/images/Apple-Vision-Pro_04.jpg'
-    }
+
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const nextProduct = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === products.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex(prevIndex => (prevIndex === products.length - 1 ? 0 : prevIndex + 1));
+    scrollToItem();
   };
 
   const prevProduct = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? products.length - 1 : prevIndex - 1));
+    setCurrentIndex(prevIndex => (prevIndex === 0 ? products.length - 1 : prevIndex - 1));
+    scrollToItem();
+  };
+
+  const scrollToItem = () => {
+    if (containerRef.current) {
+      containerRef.current.children[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
   };
 
   const currentProduct = products[currentIndex];
 
   return (
     <div className={classes.details}>
-
-      <div className={classes.closeBtn}>
-        <RoundButton icon={<IoIosClose size={30} color='#68686C' />} onClick={closeTab} />
-      </div>
-      <div className={classes.imageContainer}>
-        <img className={classes.imagem} alt={currentProduct.position} src={currentProduct.image} />
-      </div>
-      <div className={classes.button}>
-        <RoundButton icon={<IoIosArrowBack size={23} color='#68686C' />} onClick={prevProduct} />
-        <RoundButton icon={<IoIosArrowForward size={23} color='#68686C' />} onClick={nextProduct} />
+      <div className={classes.productContainer} ref={containerRef}>
+        {products.map((prod, index) => (
+          <div key={index} className={classes.productItem}>
+            <DesignCard product={prod} />
+          </div>
+        ))}
 
       </div>
-
-      <p className={classes.detailsText}>{currentProduct.description}</p>
-
+      <div className={classes.buttons}>
+        <RoundButton icon={<IoIosClose size={20} color='#68686C' />} onClick={closeTab} />
+        <div className={classes.controlsBtn}>
+          <RoundButton icon={<IoIosArrowBack size={20} color='#68686C' />} onClick={prevProduct} />
+          <RoundButton icon={<IoIosArrowForward size={20} color='#68686C' />} onClick={nextProduct} />
+        </div>
+      </div>
+      <div style={{
+        position: 'absolute',
+        bottom: '25px'
+      }} ><Button variant='buy' href='https://www.apple.com/shop/buy-vision/apple-vision-pro' title='Buy' /></div>
     </div>
   );
 };

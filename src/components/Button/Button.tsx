@@ -7,20 +7,20 @@ interface ButtonProps {
   title: string;
   href?: string; // Tornando o href opcional
   onClick?: () => void; // Tornando onClick opcional
-  variant?: 'primary' | 'secondary'; // Definindo os valores permitidos para variant
+  variant?: 'primary' | 'secondary' | 'buy'; // Definindo os valores permitidos para variant
 }
 
 const Button: React.FC<ButtonProps> = ({ title, href, onClick, variant = 'primary' }) => {
-  const styleBtn = variant === 'primary' ? classes.primary : classes.secondary;
-  
+  const styleBtn = variant === 'primary' ? classes.primary : variant === 'secondary' ? classes.secondary : classes.buy;
+
   // Renderiza o Link somente se o href estiver presente
   const renderLink = () => {
     if (href) {
       return (
         <Link className={`${classes.button} ${styleBtn}`} href={href} passHref>
-          
-            {title}
-          
+
+          {title}
+
         </Link>
       );
     } else {

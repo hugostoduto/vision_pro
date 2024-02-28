@@ -2,11 +2,11 @@
 'use client'
 import Button from '@/components/Button/Button'
 import PlusButton from '@/components/PlusButton/PlusButton'
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import classes from './index.module.scss'
 import '../../app/globals.css'
 
-const Details = ({onClick}:{onClick: ()=> void}) => {
+const Details = ({ onClick }: { onClick: () => void }) => {
   const prod1 = {
     position: 'Front',
     description: 'A singular piece of three-dimensionally formed laminated glass flows into an aluminum alloy frame that gently curves to wrap around your face.',
@@ -19,12 +19,12 @@ const Details = ({onClick}:{onClick: ()=> void}) => {
   }
   const prod3 = {
     position: 'Audio Straps',
-    description: 'Speakers are positioned close to your ears, delivering rich Spatial Audio that seamlessly blends with real-world sounds. Two head bands are included. The Solo Knit Band provides cushioning, breathability, and stretch, and a Fit Dial lets you adjust Apple Vision Pro to your head. The Dual Loop Band features a pair of adjust',
+    description: 'Speakers are positioned close to your ears, delivering rich Spatial Audio that seamlessly blends with real-world sounds. ',
     image: '/assets/images/Apple-Vision-Pro_05.jpg'
   }
   const prod4 = {
     position: 'Head Bands',
-    description: 'Two head bands are included. The Solo Knit Band provides cushioning, breathability, and stretch, and a Fit Dial lets you adjust Apple Vision Pro to your head. The Dual Loop Band features a pair of adjustable upper and lower straps for a precise fit.',
+    description: 'Two head bands are included. The Solo Knit Band provides cushioning, breathability, and stretch, and a Fit Dial lets you adjust Apple Vision Pro to your head. ',
     image: '/assets/images/Apple-Vision-Pro_03.jpg'
   }
   const prod5 = {
@@ -42,9 +42,9 @@ const Details = ({onClick}:{onClick: ()=> void}) => {
       setProd(prod1)
     }
   }
-  
+
   return (
-    
+
     <div className={classes.details}>
       <div className={classes.imageContainer}>
         <div className={classes.btnContainerA}>
@@ -55,8 +55,8 @@ const Details = ({onClick}:{onClick: ()=> void}) => {
           <PlusButton onClick={() => setProd(prod4)} />
           <PlusButton onClick={() => setProd(prod5)} />
         </div>
-        
-        
+
+
         <img className={classes.imagem} alt={prod.position} src={prod.image} />
       </div>
       <h1 className={classes.title}>{prod.position}</h1>
@@ -64,7 +64,7 @@ const Details = ({onClick}:{onClick: ()=> void}) => {
       <div className={classes.button}>
         <Button variant='secondary' onClick={onClick} title='Learn more about design' /></div>
     </div>
-    
+
   )
 }
 
